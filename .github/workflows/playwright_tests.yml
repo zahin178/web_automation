@@ -49,6 +49,6 @@ jobs:
                 pytest tests/zeuz --tracing retain-on-failure
 
           - name: Run other tests
-            if: ${{ github.event.inputs.tests == 'other' }}
+            if: ${{ github.event.inputs.tests == 'others' }}
             run: |
                 pytest tests/others --tracing retain-on-failure
