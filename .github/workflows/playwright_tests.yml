@@ -26,7 +26,7 @@ jobs:
           - name: Set up Python
             uses: actions/setup-python@v4
             with:
-              python-version: ${{ python-version }}
+              python-version: ${{ matrix.python-version }}
 
           - name: Install dependencies
             run: |
@@ -46,12 +46,12 @@ jobs:
           - name: Run zeuz tests
             if: ${{ github.event.inputs.tests == "zeuz" }}
             run: |
-                pytest tests\zeuz --tracing retain-on-failure
+                pytest tests/zeuz --tracing retain-on-failure
 
           - name: Run other tests
             if: ${{ github.event.inputs.tests == "other" }}
             run: |
-                pytest tests\others --tracing retain-on-failure
+                pytest tests/others --tracing retain-on-failure
 
 
 
