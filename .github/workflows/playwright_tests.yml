@@ -39,21 +39,16 @@ jobs:
                 playwright install
 
           - name: Run all tests
-            if: ${{ github.event.inputs.tests == all }}
+            if: ${{ github.event.inputs.tests == 'all' }}
             run: |
                 pytest --tracing retain-on-failure 
 
           - name: Run zeuz tests
-            if: ${{ github.event.inputs.tests == zeuz }}
+            if: ${{ github.event.inputs.tests == 'zeuz' }}
             run: |
                 pytest tests/zeuz --tracing retain-on-failure
 
           - name: Run other tests
-            if: ${{ github.event.inputs.tests == other }}
+            if: ${{ github.event.inputs.tests == 'other' }}
             run: |
                 pytest tests/others --tracing retain-on-failure
-
-
-
-
-
